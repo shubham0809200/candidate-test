@@ -1,0 +1,178 @@
+<form action="#" method="POST">
+    <div class="shadow sm:rounded-md sm:overflow-hidden">
+        <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
+            <div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Candidate Information</h3>
+                <!-- <p class="mt-1 text-sm text-gray-500">Use a permanent address where you can recieve mail.</p> -->
+            </div>
+
+            <div class="grid grid-cols-6 gap-6">
+                <div class="col-span-6 sm:col-span-3">
+                    <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                    <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                        [(ngModel)]="candidate.firstName"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-3">
+                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                    <input type="text" name="last-name" id="last-name" autocomplete="family-name"
+                        [(ngModel)]="candidate.lastName"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-4">
+                    <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+                    <input type="text" name="email-address" id="email-address" autocomplete="email"
+                        [(ngModel)]="candidate.email"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <label for="phone-number" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input type="number" name="phone-number" id="phone-number" autocomplete="phone-number"
+                        [(ngModel)]="candidate.phone"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <label for="alternate-phone-number" class="block text-sm font-medium text-gray-700">Alternate Phone
+                        Number</label>
+                    <input type="number" name="alternate-phone-number" id="alternate-phone-number"
+                        autocomplete="alternate-phone-number" [(ngModel)]="candidate.alternatePhone"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+
+
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <label for="birthdate" class="block text-sm font-medium text-gray-700">Birthdate</label>
+                    <input type="date" name="birthdate" id="birthdate" autocomplete="birthdate"
+                        [(ngModel)]="candidate.birthDate"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-6">
+                    <label for="permanent" class="block text-sm font-medium text-gray-700">Permanent Address</label>
+                    <div class="mt-1">
+                        <textarea id="permanent" name="permanent" rows="3" [(ngModel)]="candidate.permanentAddress"
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">Please provide your permanent address</p>
+                </div>
+
+                <div class="col-span-6 sm:col-span-6">
+                    <label for="communication-address" class="block text-sm font-medium text-gray-700">Communication
+                        Address</label>
+                    <div class="mt-1">
+                        <textarea id="communication-address" name="communication-address" rows="3"
+                            [(ngModel)]="candidate.communicationAddress"
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">Please provide your communication-address address</p>
+                </div>
+
+                <div class="col-span-6 sm:col-span-6">
+                    <label for="skills" class="block text-sm font-medium text-gray-700">Skills</label>
+                    <div class="mt-1">
+                        <textarea id="skills" name="skills" rows="3" [(ngModel)]="candidate.skills"
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">Please provide your skills</p>
+                </div>
+
+                <div class="col-span-6 sm:col-span-6">
+                    <label for="experiance" class="block text-sm font-medium text-gray-700">Experiance</label>
+                    <div class="mt-1">
+                        <textarea id="experiance" name="experiance" rows="3" [(ngModel)]="candidate.experiance"
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">Please provide your experiance detail</p>
+                </div>
+
+                <!-- // current company name  -->
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <label for="current-company-name" class="block text-sm font-medium text-gray-700">Current Company
+                        Name</label>
+                    <input type="text" name="current-company-name" id="current-company-name"
+                        autocomplete="current-company-name" [(ngModel)]="candidate.currentCompany"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <!-- // current company designation  -->
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <label for="current-company-designation" class="block text-sm font-medium text-gray-700">Current
+                        Company Designation</label>
+                    <input type="text" name="current-company-designation" id="current-company-designation"
+                        autocomplete="current-company-designation" [(ngModel)]="candidate.currentJobStatus"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <!-- // current CTC  -->
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <label for="current-ctc" class="block text-sm font-medium text-gray-700">Current CTC</label>
+                    <input type="number" name="current-ctc" id="current-ctc" autocomplete="current-ctc"
+                        [(ngModel)]="candidate.currentCTC"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <!-- // expected CTC  -->
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <label for="expected-ctc" class="block text-sm font-medium text-gray-700">Expected CTC</label>
+                    <input type="number" name="expected-ctc" id="expected-ctc" autocomplete="expected-ctc"
+                        [(ngModel)]="candidate.expectedCTC"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <!-- // notice period  -->
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <label for="notice-period" class="block text-sm font-medium text-gray-700">Notice Period</label>
+                    <input type="number" name="notice-period" id="notice-period" autocomplete="notice-period"
+                        [(ngModel)]="candidate.noticePeriod"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+            </div>
+        </div>
+        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <span *ngIf="urlId">
+                <button type="button" (click)="deleteCandidate()"
+                    class=" mr-2 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-red-500 bg-white hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    Delete
+                </button>
+            </span>
+            <button type="button" (click)="resetForm()"
+                class=" mr-2 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-red-500 bg-white hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                Reset
+            </button>
+
+            <!-- // red button to cancle and redirect back -->
+            <button type="button" (click)="cancle()"
+                class=" mr-2 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-red-500 bg-white hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                Cancel
+            </button>
+
+
+            <button *ngIf="!loading  && !urlId" type="submit" (click)="submitForm()"
+                class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-10 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Save
+            </button>
+
+            <button *ngIf="!loading && urlId" type="submit" (click)="submitForm()"
+                class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-10 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Update
+            </button>
+
+            <button type="button"
+                class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                *ngIf="loading">
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+                Loading...
+            </button>
+        </div>
+    </div>
+</form>

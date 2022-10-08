@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "candidate-test-08": {
+      "hosting": {
+        "candidate_test": [
+          "candidate-test-08"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "candidate-test-08"
+  }
+}
