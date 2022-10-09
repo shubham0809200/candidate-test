@@ -48,6 +48,7 @@
   padding: 10px;
   padding-left: 10px;
   border-radius: 10px;
+  min-height: 500px;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {

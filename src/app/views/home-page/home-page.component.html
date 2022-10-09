@@ -1,8 +1,6 @@
 <mat-drawer-container>
     <mat-drawer #drawer mode="side" opened>
-        <!-- <button type="button" mat-button color="primary" style="margin-left: 110px;" (click)="drawer.toggle()">
-            <mat-icon *ngIf="drawer.opened">close</mat-icon>
-        </button> -->
+       
         <button type="button" (click)="drawer.toggle()" class=" ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2
             focus:ring-inset focus:ring-white">
             <span class="sr-only">Close sidebar</span>
@@ -48,7 +46,6 @@
         </button>
         <div class="content mat-elevation-z4">
             <router-outlet></router-outlet>
-            
         </div>
     </mat-drawer-content>
 </mat-drawer-container>
