@@ -46,8 +46,9 @@ import { CandidateFeedbackFormComponent } from './views/candidate-feedback-form/
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     RouterModule.forRoot([
+      { path: '', redirectTo: 'home/candidate-profile', pathMatch: 'full' },
       {
-        path: '',
+        path: 'home',
         component: HomePageComponent,
         children: [
           {
