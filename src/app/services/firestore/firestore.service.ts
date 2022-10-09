@@ -9,6 +9,7 @@ import { FeedbackForm } from 'src/app/module/feedback/feedback.module';
   providedIn: 'root',
 })
 export class FirestoreService {
+  
   constructor(public afs: AngularFirestore) {}
 
   // feedback form data
@@ -66,4 +67,5 @@ export class FirestoreService {
   deleteCandidate(collectionName: string, id: string) {
     return this.afs.collection(collectionName).doc(id).delete();
   }
+  
 }
