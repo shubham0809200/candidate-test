@@ -33,6 +33,7 @@ export class CandidateProfileFormComponent implements OnInit {
     currentCTC: '',
     expectedCTC: '',
     noticePeriod: '',
+    pdfUrl: '',
   };
 
   constructor(
@@ -165,6 +166,7 @@ export class CandidateProfileFormComponent implements OnInit {
       currentCTC: '',
       expectedCTC: '',
       noticePeriod: '',
+      pdfUrl: '',
     };
   }
 }

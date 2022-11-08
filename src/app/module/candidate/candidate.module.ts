@@ -19,4 +19,5 @@ export interface Candidate {
   currentCTC: string;
   expectedCTC: string;
   noticePeriod: string;
+  pdfUrl: string;
 }

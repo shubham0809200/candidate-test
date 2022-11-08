@@ -1,0 +1,20 @@
+<!-- if data is avilable  -->
+
+<mat-card *ngIf="pdfSrc != ''">
+    <pdf-viewer [src]="pdfSrc" [render-text]="true" [original-size]="false" class="block h-[500px] w-[400px]">
+    </pdf-viewer>
+    <!-- download button -->
+    <button type="button" (click)="downloadPdf()" class="inline-flex items-center mt-4 px-4 py-2 border border-gray-300 shadow-sm text-sm
+                    font-medium rounded-md text-green-500 bg-white hover:bg-green-100 focus:outline-none
+                    focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+        Download
+    </button>
+</mat-card>
+
+<!-- if data is not avilable  -->
+<mat-card *ngIf="pdfSrc == ''">
+    <div class="flex justify-center items-center h-[500px] w-[400px]">
+        <h1 class="text-center text-2xl font-bold">No Data Available</h1>
+    </div>
+
+</mat-card>

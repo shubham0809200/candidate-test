@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Candidate } from 'src/app/module/candidate/candidate.module';
-import { FeedbackForm } from 'src/app/module/feedback/feedback.module';
 import { FirestoreService } from '../../services/firestore/firestore.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-candidate-profile',
@@ -15,7 +17,8 @@ export class CandidateProfileComponent implements OnInit {
   constructor(
     private firestoreService: FirestoreService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -26,10 +29,14 @@ export class CandidateProfileComponent implements OnInit {
     }
   }
 
-  // fetch candidate data from firebase
-
   candidateData: Candidate[] = [];
 
+  // Open PDF
+  openDialog(url: string): void {
+    this.dialog.open(PdfViewerComponent);
+  }
+
+  // Get Candidate Data from firebase
   async fetchCandidateData() {
     try {
       this.firestoreService
@@ -44,7 +51,6 @@ export class CandidateProfileComponent implements OnInit {
   }
 
   // delete candidate data from firebase
-
   async deleteCandidateData(id: string) {
     try {
       // check with alert
@@ -52,5 +58,13 @@ export class CandidateProfileComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  // Expory to excel
+  exportToExcel(): void {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.candidateData);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Candidate Data');
+    XLSX.writeFile(wb, 'Candidate Data.xlsx');
   }
 }

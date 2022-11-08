@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FeedbackForm } from 'src/app/module/feedback/feedback.module';
 import { FirestoreService } from '../../services/firestore/firestore.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-candidate-feedback',
@@ -24,10 +25,9 @@ export class CandidateFeedbackComponent implements OnInit {
     }
   }
 
-  // fetch feedback data from firebase
-
   feedbackData: FeedbackForm[] = [];
 
+  // fetch feedback data from firebase
   async fetchFeedbackData() {
     try {
       this.firestoreService.getAllFeedbackForm('feedback').subscribe((data) => {
@@ -40,12 +40,19 @@ export class CandidateFeedbackComponent implements OnInit {
   }
 
   // delete feedback data from firebase
-
   async deleteFeedbackData(id: string) {
     try {
       this.firestoreService.deleteFeedbackForm('feedback', id);
     } catch (error) {
       console.log(error);
     }
+  }
+
+  // Expory to excel
+  exportToExcel(): void {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.feedbackData);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Candidate Data');
+    XLSX.writeFile(wb, 'Candidate Data.xlsx');
   }
 }

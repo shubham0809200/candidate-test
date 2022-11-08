@@ -3,14 +3,19 @@ import {
   AngularFirestore,
   AngularFirestoreCollection,
 } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Candidate } from 'src/app/module/candidate/candidate.module';
 import { FeedbackForm } from 'src/app/module/feedback/feedback.module';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirestoreService {
-  
-  constructor(public afs: AngularFirestore) {}
+  // declase stogare angularstorage
+  constructor(
+    public afs: AngularFirestore,
+    public storage: AngularFireStorage
+  ) {}
 
   // feedback form data
 
@@ -67,5 +72,9 @@ export class FirestoreService {
   deleteCandidate(collectionName: string, id: string) {
     return this.afs.collection(collectionName).doc(id).delete();
   }
-  
+
+  uploadPdf(file: any, path: string) {
+    // upload pdf to firebase storage
+    return this.storage.upload(path, file);
+  }
 }

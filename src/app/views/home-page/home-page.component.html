@@ -1,7 +1,7 @@
 <mat-drawer-container>
     <mat-drawer #drawer mode="side" opened>
-       
-        <button type="button" (click)="drawer.toggle()" class=" ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2
+
+        <button type="button" (click)="drawer.toggle()" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2
             focus:ring-inset focus:ring-white">
             <span class="sr-only">Close sidebar</span>
             <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -13,7 +13,6 @@
         <p>Admin Portal</p>
         <mat-divider></mat-divider>
         <mat-nav-list>
-
 
             <button routerLink="/candidate-profile" routerLinkActive="active"
                 class="text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md my-1"
@@ -36,11 +35,9 @@
                 Feedback
             </button>
 
-
-
         </mat-nav-list>
     </mat-drawer>
-    <mat-drawer-content class="overflow-x-hidden m-5">
+    <mat-drawer-content class="overflow-x-hidden">
         <button (click)="drawer.toggle()" type="button" mat-button color="primary">
             <mat-icon *ngIf="!drawer.opened">menu</mat-icon>
         </button>

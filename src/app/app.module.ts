@@ -15,6 +15,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
+// Pdf viewer
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 // Angular Material imports
 import { AngularMaterialModule } from './module/angular-material/angular-material.module';
 
@@ -23,6 +26,7 @@ import { CandidateProfileComponent } from './views/candidate-profile/candidate-p
 import { CandidateFeedbackComponent } from './views/candidate-feedback/candidate-feedback.component';
 import { CandidateProfileFormComponent } from './views/candidate-profile-form/candidate-profile-form.component';
 import { CandidateFeedbackFormComponent } from './views/candidate-feedback-form/candidate-feedback-form.component';
+import { PdfViewerComponent } from './views/pdf-viewer/pdf-viewer.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,7 @@ import { CandidateFeedbackFormComponent } from './views/candidate-feedback-form/
     CandidateFeedbackComponent,
     CandidateProfileFormComponent,
     CandidateFeedbackFormComponent,
+    PdfViewerComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,13 +47,13 @@ import { CandidateFeedbackFormComponent } from './views/candidate-feedback-form/
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
+    PdfViewerModule,
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: 'home/candidate-profile', pathMatch: 'full' },
       {
-        path: 'home',
+        path: '',
         component: HomePageComponent,
         children: [
           {
@@ -63,7 +68,6 @@ import { CandidateFeedbackFormComponent } from './views/candidate-feedback-form/
             path: 'candidate-profile',
             component: CandidateProfileComponent,
           },
-
           {
             path: 'candidate-feedback/new',
             component: CandidateFeedbackFormComponent,
@@ -78,6 +82,7 @@ import { CandidateFeedbackFormComponent } from './views/candidate-feedback-form/
     ]),
   ],
   providers: [],
+  entryComponents: [PdfViewerComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
