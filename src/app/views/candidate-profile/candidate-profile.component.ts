@@ -5,6 +5,7 @@ import { FirestoreService } from '../../services/firestore/firestore.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
 import * as XLSX from 'xlsx';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   selector: 'app-candidate-profile',
@@ -18,7 +19,8 @@ export class CandidateProfileComponent implements OnInit {
     private firestoreService: FirestoreService,
     private route: ActivatedRoute,
     private router: Router,
-    public dialog: MatDialog
+    private dialog: MatDialog,
+    private shared: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +35,7 @@ export class CandidateProfileComponent implements OnInit {
 
   // Open PDF
   openDialog(url: string): void {
+    this.shared.setPdfUrl(url);
     this.dialog.open(PdfViewerComponent);
   }
 

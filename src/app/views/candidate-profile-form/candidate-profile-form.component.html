@@ -51,6 +51,22 @@
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
 
+                <!-- upload a pdf -->
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                    <label for="resume" class="block text-sm font-medium text-gray-700">Resume</label>
+                    <input type="file" (change)="upoadFile($event)" accept="*.pdf" name="resume" id="resume"
+                        autocomplete="resume"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <button type="button" (click)="openDialog(candidate.pdfUrl)" class=" inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm
+                font-medium rounded-md text-green-500 bg-white hover:bg-green-100 focus:outline-none
+                focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    Show Resume
+                </button>
+
+
+
                 <div class="col-span-6 sm:col-span-6">
                     <label for="permanent" class="block text-sm font-medium text-gray-700">Permanent Address</label>
                     <div class="mt-1">

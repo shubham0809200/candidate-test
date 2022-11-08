@@ -11,6 +11,8 @@ import { FeedbackForm } from 'src/app/module/feedback/feedback.module';
   providedIn: 'root',
 })
 export class FirestoreService {
+
+
   // declase stogare angularstorage
   constructor(
     public afs: AngularFirestore,
@@ -73,8 +75,7 @@ export class FirestoreService {
     return this.afs.collection(collectionName).doc(id).delete();
   }
 
-  uploadPdf(file: any, path: string) {
-    // upload pdf to firebase storage
-    return this.storage.upload(path, file);
+  uploadPdf(filePath: string, file: any) {
+    return this.storage.upload(filePath, file);
   }
 }

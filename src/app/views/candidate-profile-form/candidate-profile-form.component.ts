@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Candidate } from 'src/app/module/candidate/candidate.module';
-import { FeedbackForm } from 'src/app/module/feedback/feedback.module';
 import { FirestoreService } from '../../services/firestore/firestore.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
 
 @Component({
   selector: 'app-candidate-profile-form',
@@ -39,7 +40,8 @@ export class CandidateProfileFormComponent implements OnInit {
   constructor(
     private firestoreService: FirestoreService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -74,6 +76,21 @@ export class CandidateProfileFormComponent implements OnInit {
     } finally {
       this.loading = false;
     }
+  }
+
+  upoadFile(event: any) {
+    const file = event.target.files[0];
+    const filePath = `candidate/${this.candidate.firstName}.pdf`;
+    this.firestoreService.uploadPdf(filePath, file).then((data) => {
+      data.ref.getDownloadURL().then((url) => {
+        this.candidate.pdfUrl = url;
+      });
+    });
+  }
+
+  // Open PDF
+  openDialog(url: string): void {
+    this.dialog.open(PdfViewerComponent);
   }
 
   async submitForm() {
