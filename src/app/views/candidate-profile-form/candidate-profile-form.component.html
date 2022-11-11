@@ -23,14 +23,14 @@
 
                 <div class="col-span-6 sm:col-span-4">
                     <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                    <input type="text" name="email-address" id="email-address" autocomplete="email"
+                    <input type="email" name="email-address" id="email-address" autocomplete="email"
                         [(ngModel)]="candidate.email"
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
 
                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                     <label for="phone-number" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                    <input type="number" name="phone-number" id="phone-number" autocomplete="phone-number"
+                    <input type="tel" maxlength="10" name="phone-number" id="phone-number" autocomplete="phone-number"
                         [(ngModel)]="candidate.phone"
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
@@ -38,8 +38,8 @@
                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                     <label for="alternate-phone-number" class="block text-sm font-medium text-gray-700">Alternate Phone
                         Number</label>
-                    <input type="number" name="alternate-phone-number" id="alternate-phone-number"
-                        autocomplete="alternate-phone-number" [(ngModel)]="candidate.alternatePhone"
+                    <input type="tel" name="alternate-phone-number" id="alternate-phone-number"
+                        autocomplete="alternate-phone-number" maxlength="10" [(ngModel)]="candidate.alternatePhone"
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
 
