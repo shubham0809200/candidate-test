@@ -7,7 +7,8 @@ import { SharedService } from 'src/app/services/shared/shared.service';
   styleUrls: ['./pdf-viewer.component.css'],
 })
 export class PdfViewerComponent implements OnInit {
-  pdfSrc = 'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf';
+  // pdfSrc = 'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf';
+  pdfSrc = '';
 
   constructor(private shared: SharedService) {}
 
@@ -18,4 +19,5 @@ export class PdfViewerComponent implements OnInit {
   downloadPdf() {
     window.open(this.pdfSrc);
   }
+  
 }
